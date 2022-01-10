@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport">
+    <link rel="stylesheet" href="./asset/css/style.css">
+    <title>Interactive Code Quiz</title>
+</head>
+<body onload="entryContent()">
+    <main>
+        <!-- end game -->
+        <div class="score-container" id="scoreboard">
+
+            <div class="score-content-container">
+
+                <h1>Quiz Completed</h1>
+
+                <div class="grade-details">
+                    <p>Your final score is : <span id="right-answers"></span></p>
+                    <p>Enter Initial: <textarea id="initial"></textarea></p>
+                    <p>Score: <span id="display-initial"></span> <span id="display-score"></span></p>
+                </div>
+
+                <div class="score-button-container">
+                    <button id="scoreboard-button">Submit score</button>
+                </div>
+
+            </div>
+        </div>
+<!-- end of end game-->
+
+<!-- game content-->
+
+
+    <div class="start-container" id="start-content">
+
+        <div>
+         <h1>This is a 10 Question JavaScript Related quiz. Try to answer them within the 50 second time limit as much as you can. Keep in mind that wrong answer will result on time penalty. Good Luck and Continue if you are!</h1>
+
+        <div class="start-button-container">
+            <button id="start-button">Continue</button>
+        </div>
+
+        </div>
+    </div>
+
+<div class="game-quiz-container" id="game-quiz-container">
+
+            <div class="game-details-container">
+                <h1>Score : <span id="player-score"></span> / 10</h1>
+                <h1> Question : <span id="question-number"></span> / 10</h1>
+                <h1>Time remaining: <span id="timer"></span></h1>
+                <h1>highscore: <span id="display-initial"></span> <span id="display-score"></span> <span id="display-score"></span> <span id="display-score"></span></h1>
+            </div>
+
+            <div class="game-question-container">
+                <h1 id="display-question"></h1>
+            </div>
+
+            <div class="game-options-container">
+                <span>
+                    <input type="radio" id="option-one" name="option" class="radio" value="optionA" />
+                    <label for="option-one" class="option" id="option-one-label"></label>
+                </span>
+                <span>
+                    <input type="radio" id="option-two" name="option" class="radio" value="optionB" />
+                    <label for="option-two" class="option" id="option-two-label"></label>
+                </span>
+                <span>
+                    <input type="radio" id="option-three" name="option" class="radio" value="optionC" />
+                    <label for="option-three" class="option" id="option-three-label"></label>
+                </span>
+                <span>
+                    <input type="radio" id="option-four" name="option" class="radio" value="optionD" />
+                    <label for="option-four" class="option" id="option-four-label"></label>
+                </span>
+            </div>
+
+            <div class="next-button-container">
+                <button onclick="handleNextQuestion()">Next Question</button>
+            </div>
+
+        </div>
+    </main>
+    <script src="./asset/javascript/script.js"></script>
+</body>
+
+</html>
