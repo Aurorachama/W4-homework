@@ -11,6 +11,7 @@ var initialDisplayEl = document.getElementById('display-initial');
 var scoreDisplayEl = document.getElementById('display-score');
 var highinitialEl = localStorage.getItem('saved-initial');
 var highscoreEl= localStorage.getItem('saved-score');
+console.log(highscoreEl);
 
  const questions = [
     {
