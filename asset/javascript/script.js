@@ -7,10 +7,13 @@ var initialEl = document.getElementById('initial');
 var timerEl = document.getElementById('timer');
 var startButtonEl = document.getElementById('start-button');
 var scoreButtonEl = document.getElementById('scoreboard-button');
-var initialDisplayEl = document.getElementById('display-initial');
-var scoreDisplayEl = document.getElementById('display-score');
+var initialBoardEl = document.getElementById('your-initial');
+var scoreBoardEl = document.getElementById('your-score');
 var highinitialEl = localStorage.getItem('saved-initial');
 var highscoreEl= localStorage.getItem('saved-score');
+var initialDisplayEl = document.getElementById('display-initial');
+var scoreDisplayEl = document.getElementById('display-score');
+console.log(highinitialEl);
 console.log(highscoreEl);
 
  const questions = [
@@ -226,17 +229,18 @@ function handleEndGame() {
 
     document.getElementById('right-answers').innerHTML = playerScore;
     document.getElementById('scoreboard').style.display = "flex";
-    if(initialEl = ""){
+    if(highinitialEl = ""){
         initialDisplayEl.textContent= "No highscore Yet"
 
     }
 }
 
 function closeScoreboard() {
-    localStorage.setItem("saved-initial",initialEl);
+    event.preventDefault;
+    localStorage.setItem("saved-initial",document.getElementById('initial').value);
     localStorage.setItem("saved-score", playerScore);
-    initialDisplayEl.textContent = highinitialEl;
-    scoreDisplayEl.content = highscoreEl;
+    initialBoardEl.textContent = highinitialEl;
+    scoreBoardEl.textContent = highscoreEl;
 }
 
 function entryContent() {
@@ -244,14 +248,17 @@ function entryContent() {
 }
 
 startButtonEl.addEventListener('click',function (){
+    //event.preventDefault;
     console.log("start");
     document.getElementById('start-content').style.display = "none";
     document.getElementById('game-quiz-container').style.display = "flex";
     //document.getElementById('game-option-container').style.display = "flex";
     NextQuestion(0);
     countdown();
+    //initialDisplayEl.textContent = localStorage.getItem['saved-initial'];
+    //scoreDisplayEl.textContent = localStorage.getItem['saved-score'];
     initialDisplayEl.textContent = highinitialEl;
-    scoreDisplayEl.content = highscoreEl;
+    scoreDisplayEl.textContent = highscoreEl;
 });
 
 scoreButtonEl.addEventListener('click',closeScoreboard);
