@@ -13,6 +13,7 @@ var highinitialEl = localStorage.getItem('saved-initial');
 var highscoreEl= localStorage.getItem('saved-score');
 var initialDisplayEl = document.getElementById('display-initial');
 var scoreDisplayEl = document.getElementById('display-score');
+var clearButtonEl = document.getElementById('clear-score');
 console.log(highinitialEl);
 console.log(highscoreEl);
 
@@ -181,7 +182,7 @@ function checkForAnswer() {
             document.getElementById(wrongLabelId).style.backgroundColor = "red";
             document.getElementById(correctOption).style.backgroundColor = "green";
             wrongAttempt++;
-            timeLeft= timeLeft-7;
+            timeLeft= timeLeft-50;
             timerEl.textContent = timeLeft;
 
             indexNumber++
@@ -229,18 +230,19 @@ function handleEndGame() {
 
     document.getElementById('right-answers').innerHTML = playerScore;
     document.getElementById('scoreboard').style.display = "flex";
-    if(highinitialEl = ""){
-        initialDisplayEl.textContent= "No highscore Yet"
-
-    }
+    initialBoardEl.textContent = localStorage.getItem('saved-initial');
+    scoreBoardEl.textContent = localStorage.getItem('saved-score');
 }
 
 function closeScoreboard() {
-    event.preventDefault;
-    localStorage.setItem("saved-initial",document.getElementById('initial').value);
-    localStorage.setItem("saved-score", playerScore);
-    initialBoardEl.textContent = highinitialEl;
-    scoreBoardEl.textContent = highscoreEl;
+    initialBoardEl.textContent = localStorage.getItem('saved-initial');
+    scoreBoardEl.textContent = localStorage.getItem('saved-score');
+
+    if(playerScore>highscoreEl){
+        localStorage.setItem("saved-initial",document.getElementById('initial').value);
+        localStorage.setItem("saved-score", playerScore);
+    }
+
 }
 
 function entryContent() {
@@ -262,3 +264,7 @@ startButtonEl.addEventListener('click',function (){
 });
 
 scoreButtonEl.addEventListener('click',closeScoreboard);
+
+clearButtonEl.addEventListener('click',function(){
+    localStorage.clear();
+});
